@@ -72,3 +72,10 @@ Homebrew is a package manager for macOS. Sometimes it makes it easier to install
 
 1. Visit <https://brew.sh> and copy the command to install Homebrew
 2. Open Terminal and paste the command that was just copied
+
+### 7. Install Postman
+
+Postman is a very strong tool for directly testing backend API endpoints (we will learn more about this later). 
+
+1. Visit <https://www.postman.com/downloads/> and download the correct version for your OS.
+2. Make a Postman account.
