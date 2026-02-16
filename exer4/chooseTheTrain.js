@@ -37,6 +37,18 @@ const railArray = await getRealTimeRailCoordinates();
  */
 function getKeysToArr(arrivals) {
   // TODO
+
+  // take the first element
+  // extract the keys from the first element
+  let temp = arrivals[0];
+  // create new array and add the keys into the new array
+  let res = [];
+
+  for (let key in temp) {
+    res.push(key);
+  }
+
+  return res;
 }
 
 /**
@@ -53,6 +65,13 @@ function getKeysToArr(arrivals) {
  */
 function getTrainComingIn1Minute(arrivals) {
   // TODO
+  let res = [];
+  arrivals.forEach(train => {
+    if (train.WAITING_TIME == "1 min") {
+      res.push(train);
+    }
+  });
+  return res;
 }
 
 /**
@@ -85,6 +104,14 @@ function getTrainComingIn1Minute(arrivals) {
  */
 function updateLineColor(arrivals) {
   // TODO
+  const targetTrains = arrivals.filter(train => train.LINE === 'BLUE');
+
+  // map creates the new array, spread handles copying over the objects
+  let copiedTrains = targetTrains.map(train => ({...train}));
+  
+  // change color of trains
+  copiedTrains.forEach(train => train.LINE = 'PINK');
+  return copiedTrains;
 }
 
 /*
@@ -101,5 +128,6 @@ console.log(getTrainComingIn1Minute(railArray));
 
 // EXPECTED: Array with only the Blue Line trains, but with LINE changed to 'PINK', this can vary based on real-time data
 console.log(updateLineColor(railArray));
+
 // EXPECTED: true as the original railArray should not be modified
 console.log(railArray.some((arrival) => arrival.LINE === "BLUE"));
