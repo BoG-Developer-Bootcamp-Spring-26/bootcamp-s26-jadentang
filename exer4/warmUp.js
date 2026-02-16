@@ -16,7 +16,22 @@
  * F = anything < 60
  */
 function toLetterGrade(numGrade) {
-  // TODO
+  // takes integer as input and returns the letter grade
+  if (numGrade > 100 || numGrade < 0) {
+    return "INVALID";
+  }
+
+  if (numGrade >= 90) {
+    return "A";
+  } else if (numGrade >= 80) {
+    return "B";
+  } else if (numGrade >= 70) {
+    return "C";
+  } else if (numGrade >= 60) {
+    return "D";
+  } else {
+    return "F";
+  }
 }
 
 /**
@@ -28,6 +43,8 @@ function toLetterGrade(numGrade) {
  */
 function getEvenElements(array) {
   // TODO
+  // use filter: num % 2 == 0
+  return array.filter(x => x % 2 == 0);
 }
 
 /**
@@ -40,7 +57,15 @@ function getEvenElements(array) {
  * Example: "I love Bits of Good" --> 4
  */
 function findLongestWord(string) {
-  // TODO
+  let arr = string.split(" ");
+  let max = 0;
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > max) {
+      max = arr[i].length;
+    }
+  }
+  return max;
 }
 
 /**
@@ -65,7 +90,12 @@ function findLongestWord(string) {
     } 
  */
 function combineObjects(object1, object2) {
-  // TODO
+  // use the spread operator
+  const combined = {
+    ...object1,
+    ...object2
+  }
+  return combined;
 }
 
 /**
@@ -77,7 +107,20 @@ function combineObjects(object1, object2) {
  *  Example: [1, 2, 3] -> [3, 2, 1]
  */
 function reverseArr(array) {
-  // TODO
+  let left = 0;
+  let right = array.length - 1;
+
+  while (left < right) {
+    let temp = array[left];
+    array[left] = array[right];
+    array[right] = temp;
+    
+    left++;
+    right--;
+  }
+  
+  // not sure if we return since pass by value allows the array to be modified?
+  return array;
 }
 
 // DO NOT EDIT BELOW THIS LINE -- the code is for testing purposes only!
